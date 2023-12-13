@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue-email-list</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- inclusione axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 <body>
+    <!-- script vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <section>
+        <h1>vue-email-list</h1>
+    </section>
+
+    <section id="app">
+        <!-- Se emailListGenerated è true, viene mostrata la lista degli indirizzi email -->
+        <div v-if="emailListGenerated" class="container">
+          <h2>Email:</h2>
+          <ul>
+            <!-- v-for viene utilizzata per iterare attraverso gli elementi di emailList e mostrarli nella lista. -->
+            <li v-for="(email, index) in emailList" :key="index">{{ email }}</li>
+          </ul>
+        </div>
+
+        <!--  altrimenti viene visualizzato il pulsante per generare gli indirizzi. -->
+        <div v-else class="container">
+          <button @click="generateEmails">Genera Email</button>
+        </div>
+    </section>
     
+
+    <!-- script js -->
+    <script src="js/script.js"></script>
 </body>
 </html>
